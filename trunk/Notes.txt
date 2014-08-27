@@ -1,0 +1,6 @@
+﻿1. Giới thiệu
+- Bổ sung thêm thống kê về Mobile Security
+
+*Demo (Android)
+- Ẩn dữ liệu, chống ăn cắp thông tin
+- Bảo vệ hệ thống khỏi malware, spyware, adware (bổ sung sau)
