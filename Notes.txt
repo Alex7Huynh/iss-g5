@@ -1,4 +1,11 @@
-﻿1. Giới thiệu
+﻿Link tham khảo thêm:
+http://www.cio.com/article/2439278/mobile/mobile-security-definition-and-solutions.html?page=2
+http://www.cio.com/article/2439275/mobile/wireless-definition-and-solutions.html
+http://whatis.techtarget.com/definition/mobile-security
+http://securelist.com/analysis/kaspersky-security-bulletin/58265/kaspersky-security-bulletin-2013-overall-statistics-for-2013/
+http://m.ictnews.vn/kinh-doanh/doanh-nghiep/ba-van-de-bao-mat-can-luu-y-danh-cho-doanh-nghiep-di-dong-118616.ict
+
+1. Giới thiệu
 - Bổ sung thêm thống kê về Mobile Security
 
 *Demo (Android)
