@@ -11,3 +11,22 @@ http://m.ictnews.vn/kinh-doanh/doanh-nghiep/ba-van-de-bao-mat-can-luu-y-danh-cho
 *Demo (Android)
 - Ẩn dữ liệu, chống ăn cắp thông tin
 - Bảo vệ hệ thống khỏi malware, spyware, adware (bổ sung sau)
+
+
+
+
+---Phan cong cong viec.
+Tuan 1 - 03/09 - 07/09
+Nhom ly thuyet: Alex Huynh  + Minh Do : bo sung ly thuyet slide
+Nhom thuc hanh: Xuan Long : tim hieu cac library cho phep an du lieu, bao ve du lieu.
+Tuan 2 - 08/09 - 14/09
+Nhom ly thuyet: alex huynh: hoan thien slide - bo sung bao cao.
+Nhom thuc hanh: Xuan Long + Minh Do: implement demo 
+Tuan 3 - 14/09 - 20/09:
+NHom ly thuyet: Alex Huynh: kiem tra demo (bug va error) - bo sung bao cao (neu co time)
+NHom thuc hanh: Xuan Long + Minh Do: tiep tuc implement cac tinh nang khac.
+****MUc tieu demo vao 20/09: hoan thanh dc phan an du lieu (documents, images hoac files).
+Tuan 4 tro di:
+Tap trung hoan thanh bao cao trong 2 tuan.
+Tap trung lam demo tiep theo (phat hien malware, virus...) (notification canh bao).
+
