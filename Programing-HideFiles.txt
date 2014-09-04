@@ -1,0 +1,28 @@
+http://stackoverflow.com/questions/9601269/how-to-develop-application-for-hide-files-in-android
+http://stackoverflow.com/questions/5878250/android-is-there-a-way-to-create-hidden-folders-and-hidden-files
+http://developer.android.com/guide/topics/data/data-storage.html
+
+encrypt files
+http://stackoverflow.com/questions/4275311/how-to-encrypt-and-decrypt-file-in-android
+
+http://stackoverflow.com/questions/19568998/how-do-i-decrypt-a-file-in-android-with-aes
+http://stackoverflow.com/questions/16547808/encrypt-decrypt-pdf-file-with-java
+https://software.intel.com/en-us/android/articles/sample-code-data-encryption-application
+
+
+read SMS 
+http://stackoverflow.com/questions/848728/how-can-i-read-sms-messages-from-the-inbox-programmatically-in-android
+http://stackoverflow.com/questions/4809874/how-to-access-the-sms-storage-on-android
+
+turn off internet
+http://stackoverflow.com/questions/3644144/how-to-disable-mobile-data-on-android
+http://stackoverflow.com/questions/3930990/android-how-to-enable-disable-wifi-or-internet-connection-programmatically
+http://stackoverflow.com/questions/8863509/how-to-programmatically-turn-off-wifi-on-android-device
+http://www.alexfilatov.com/2012/06/12/how-to-turn-on-turn-off-wifi-connection-programmatically-in-android/
+http://www.hrupin.com/2012/06/how-to-turn-on-turn-off-wifi-connection-programmatically-in-android
+
+
+detect send SMS and receive SMS
+http://stackoverflow.com/questions/2735571/detecting-sms-incoming-and-outgoing
+http://stackoverflow.com/questions/7332411/how-to-detect-outgoing-sms-messages-in-the-backgound-of-an-android-application
+http://stackoverflow.com/questions/5787894/android-is-there-any-way-to-listen-outgoing-sms
