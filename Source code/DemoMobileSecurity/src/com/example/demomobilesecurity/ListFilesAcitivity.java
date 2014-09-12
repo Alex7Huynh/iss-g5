@@ -33,7 +33,8 @@ public class ListFilesAcitivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		fileItems = fileUtils.hideFileItems;
-		listView.setAdapter(new ListFileAdpater(this, fileItems));
+		listFileAdpater = new ListFileAdpater(this, fileItems);
+		listView.setAdapter(listFileAdpater);
 		listView.setOnItemClickListener(this);
 	}
 
