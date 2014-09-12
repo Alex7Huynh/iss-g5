@@ -65,6 +65,7 @@ public class FileUtils {
 	public void hideFiles(FileItem fileItem) {
 		//for (FileItem fileItem : fileItems) {
 			moveFile(fileItem.PathFile, fileItem.FileName);
+			this.hideFileItems.add(fileItem);
 		//}
 	}
 	
