@@ -60,5 +60,10 @@ public class ListFileAdpater extends BaseAdapter {
 	    return convertView;
 
 	}
+	
+	public void updateDataList(List<FileItem> listFiles) {
+		this.mDataList = listFiles;
+		this.notifyDataSetChanged();
+	}
 
 }

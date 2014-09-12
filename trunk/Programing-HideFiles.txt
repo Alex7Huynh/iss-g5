@@ -26,3 +26,7 @@ detect send SMS and receive SMS
 http://stackoverflow.com/questions/2735571/detecting-sms-incoming-and-outgoing
 http://stackoverflow.com/questions/7332411/how-to-detect-outgoing-sms-messages-in-the-backgound-of-an-android-application
 http://stackoverflow.com/questions/5787894/android-is-there-any-way-to-listen-outgoing-sms
+
+list permission other apps
+http://stackoverflow.com/questions/4461504/determine-list-of-permissions-used-by-an-installed-application-in-android
+http://stackoverflow.com/questions/18597742/how-to-detect-which-android-apps-use-its-permission-to-send-sms-messages
