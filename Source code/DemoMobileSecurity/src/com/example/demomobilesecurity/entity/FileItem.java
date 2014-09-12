@@ -9,6 +9,6 @@ public class FileItem {
 	public String FileName;
 	public String PathFile;
 	public boolean IsFolder;
-	
+	public String FileType;
 
 }

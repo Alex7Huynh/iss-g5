@@ -5,6 +5,7 @@ import com.example.demomobilesecurity.R;
 import com.example.demomobilesecurity.entity.FileItem;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -13,6 +14,7 @@ public class FileItemView {
 
 	@InjectView(R.id.file_item_name) TextView fileName;
 	@InjectView(R.id.file_item_path) TextView filePath;
+	@InjectView(R.id.file_item_avatar) ImageView fileAvatar;
 	
 	private View mParentView;
 	private FileItem mFileItem;
