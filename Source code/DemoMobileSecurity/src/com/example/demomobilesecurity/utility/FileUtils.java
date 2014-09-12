@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -12,12 +13,14 @@ import java.util.List;
 import com.example.demomobilesecurity.entity.FileItem;
 
 import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
 public class FileUtils {
 
 	private static FileUtils fileUtils;
+	public static String  APPLICATION_FOLDER_NAME = "DemoMobileSecuity";
 	
 	public static FileUtils getFileUtils(Context context) {
 		if (fileUtils == null) {
@@ -27,12 +30,16 @@ public class FileUtils {
 	}
 	
 	private Context mContext;
-	public List<FileItem> selectedFileItems;
+	public List<FileItem> hideFileItems;
 	public FileUtils(Context context) {
 		// TODO Auto-generated constructor stub
 		mContext = context;
+		hideFileItems = new ArrayList<FileItem>();
+		
 	}
 
+	
+	
 	
 	public ArrayList<FileItem> getListFileItems(String path) {
 		File sd = new File(path);
@@ -54,22 +61,25 @@ public class FileUtils {
 		return listFileItems;
 	}
 	
-	public void moveFile(String inputPath, String inputFile, String outputPath) {
-
-	    InputStream in = null;
-	    OutputStream out = null;
+	
+	public void hideFiles(FileItem fileItem) {
+		//for (FileItem fileItem : fileItems) {
+			moveFile(fileItem.PathFile, fileItem.FileName);
+		//}
+	}
+	
+	public void restoreFileItem(FileItem fileItem, int position) {
+		this.restoreFile(fileItem.PathFile, fileItem.FileName);
+		this.hideFileItems.remove(position);
+	}
+	
+	private void restoreFile(String inputPath, String inputFile) {
+		InputStream in = null;
+	    FileOutputStream out = null;
 	    try {
 
-	        //create output directory if it doesn't exist
-	        File dir = new File (outputPath); 
-	        if (!dir.exists())
-	        {
-	            dir.mkdirs();
-	        }
-
-
-	        in = new FileInputStream(inputPath + inputFile);        
-	        out = new FileOutputStream(outputPath + inputFile);
+	        in = mContext.openFileInput(inputFile);        
+	        out = new FileOutputStream(inputPath);
 
 	        byte[] buffer = new byte[1024];
 	        int read;
@@ -85,7 +95,44 @@ public class FileUtils {
 	        out = null;
 
 	        // delete the original file
-	        new File(inputPath + inputFile).delete();  
+	        new File(inputPath).delete();  
+
+
+	    } 
+
+	         catch (FileNotFoundException fnfe1) {
+	        Log.e("tag", fnfe1.getMessage());
+	    }
+	          catch (Exception e) {
+	        Log.e("tag", e.getMessage());
+	    }
+
+	}
+	
+	public void moveFile(String inputPath, String inputFile) {
+
+	    InputStream in = null;
+	    FileOutputStream out = null;
+	    try {
+
+	        in = new FileInputStream(inputPath);        
+	        out = mContext.openFileOutput(inputFile, Context.MODE_PRIVATE);
+
+	        byte[] buffer = new byte[1024];
+	        int read;
+	        while ((read = in.read(buffer)) != -1) {
+	            out.write(buffer, 0, read);
+	        }
+	        in.close();
+	        in = null;
+
+	            // write the output file
+	            out.flush();
+	        out.close();
+	        out = null;
+
+	        // delete the original file
+	        new File(inputPath).delete();  
 
 
 	    } 

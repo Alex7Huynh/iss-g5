@@ -1,8 +1,12 @@
 package com.example.demomobilesecurity;
 
+import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 
+import com.example.demomobilesecurity.utility.FileUtils;
+
 import butterknife.ButterKnife;
+import android.R.bool;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,9 +21,11 @@ import android.widget.ImageButton;
 public abstract class BaseActivity extends Activity implements OnClickListener, OnItemClickListener {
 
 	public static String dataPath = "/";
-	
+	protected FileUtils fileUtils;
+	protected int requestCode = 100;
 	public BaseActivity() {
 		// TODO Auto-generated constructor stub
+	
 	}
 	
 	public <T> T getView(int id) {
@@ -30,6 +36,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener, 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//setContentView(R.layout.activity_main);
+		fileUtils = FileUtils.getFileUtils(getApplication());
 		setContentView(getContentView());
 		ButterKnife.inject(this);
 		try {
@@ -85,6 +92,9 @@ public abstract class BaseActivity extends Activity implements OnClickListener, 
 	     // do something here and don't write super.onBackPressed()
 		finish();
 	}
+	
+	
+
 	protected abstract int getContentView();
 	
 }

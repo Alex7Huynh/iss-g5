@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.example.demomobilesecurity.adapter.ListFileAdpater;
+import com.example.demomobilesecurity.entity.FileItem;
+import com.example.demomobilesecurity.utility.FileUtils;
+
 import butterknife.InjectView;
 import android.app.Activity;
 import android.content.Intent;
@@ -21,9 +25,16 @@ public class ListFilesAcitivity extends BaseActivity {
 
 	@InjectView(R.id.list_file) ListView listView;
     @InjectView(R.id.add_files) Button addFile;
+    
+	private List<FileItem> fileItems;
+
+	private ListFileAdpater listFileAdpater;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		fileItems = fileUtils.hideFileItems;
+		listView.setAdapter(new ListFileAdpater(this, fileItems));
+		listView.setOnItemClickListener(this);
 	}
 
 	@Override
@@ -51,7 +62,7 @@ public class ListFilesAcitivity extends BaseActivity {
 		if (v.getId() == R.id.add_files) {
 			Intent intent = new Intent(this, BrowseFileActivity.class);
 			intent.putExtra("CurrentPath", Environment.getExternalStorageDirectory().getAbsolutePath());
-			startActivity(intent);
+			startActivityForResult(intent, requestCode);
 		}
 		
 	}
@@ -61,4 +72,13 @@ public class ListFilesAcitivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		return R.layout.activity_list_file_acitivity;
 	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		listFileAdpater.updateDataList(fileUtils.hideFileItems);
+	}
+	
+	
 }

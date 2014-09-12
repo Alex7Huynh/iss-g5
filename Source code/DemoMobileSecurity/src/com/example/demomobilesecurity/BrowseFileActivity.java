@@ -27,6 +27,8 @@ public class BrowseFileActivity extends BaseActivity {
 	@InjectView(R.id.browse_list_file) ListView listView;
 	@InjectView(R.id.select_file) Button selectFile;
 	
+	private int currentPostion = -1;
+	
 	private List<FileItem> fileItems;
 	private String pathFile;
 	@Override
@@ -64,7 +66,7 @@ public class BrowseFileActivity extends BaseActivity {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+		this.selectFile();
 	}
 
 	@Override
@@ -76,7 +78,12 @@ public class BrowseFileActivity extends BaseActivity {
 	
 	@OnClick(R.id.select_file) 
 	public void selectFile() {
-		
+		if (currentPostion >= 0) {
+			FileItem fileItem = fileItems.get(currentPostion);
+			fileUtils.hideFiles(fileItem);
+			finish();
+		}
+		currentPostion = -1;
 	}
 
 	@Override
@@ -89,7 +96,7 @@ public class BrowseFileActivity extends BaseActivity {
 			intent.putExtra("CurrentPath", fileItem.PathFile);
 			startActivity(intent); 
 		} else {
-			
+			currentPostion = position;
 		}
 	}
 	
