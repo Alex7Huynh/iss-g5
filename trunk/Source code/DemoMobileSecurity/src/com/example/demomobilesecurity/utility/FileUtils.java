@@ -7,11 +7,13 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.example.demomobilesecurity.entity.FileItem;
 
 import android.content.Context;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 
 public class FileUtils {
 
@@ -25,6 +27,7 @@ public class FileUtils {
 	}
 	
 	private Context mContext;
+	public List<FileItem> selectedFileItems;
 	public FileUtils(Context context) {
 		// TODO Auto-generated constructor stub
 		mContext = context;
@@ -44,6 +47,8 @@ public class FileUtils {
 			fileItem.FileName = f.getName();
 			fileItem.PathFile = f.getAbsolutePath();
 			fileItem.IsFolder = f.isDirectory();
+			
+			fileItem.FileType = fileItem.IsFolder ? "Folder" : MimeTypeMap.getFileExtensionFromUrl(f.getAbsolutePath());
 			listFileItems.add(fileItem);
 		}
 		return listFileItems;

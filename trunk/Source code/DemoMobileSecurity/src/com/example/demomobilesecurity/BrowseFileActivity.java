@@ -38,6 +38,8 @@ public class BrowseFileActivity extends BaseActivity {
 			pathFile = Environment.getExternalStorageDirectory().getAbsolutePath();
 		fileItems = FileUtils.getFileUtils(getApplication()).getListFileItems(pathFile);
 		listView.setAdapter(new ListFileAdpater(this, fileItems));
+		listView.setOnItemClickListener(this);
+	
 	}
 
 	@Override
@@ -86,6 +88,8 @@ public class BrowseFileActivity extends BaseActivity {
 			Intent intent = new Intent(this, BrowseFileActivity.class);
 			intent.putExtra("CurrentPath", fileItem.PathFile);
 			startActivity(intent); 
+		} else {
+			
 		}
 	}
 	

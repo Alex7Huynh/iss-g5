@@ -80,6 +80,11 @@ public abstract class BaseActivity extends Activity implements OnClickListener, 
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void onBackPressed(){
+	     // do something here and don't write super.onBackPressed()
+		finish();
+	}
 	protected abstract int getContentView();
 	
 }
