@@ -31,13 +31,19 @@ public class BrowseFileActivity extends BaseActivity {
 	
 	private List<FileItem> fileItems;
 	private String pathFile;
+	
+	public boolean isRestoreFile;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
+		isRestoreFile = getIntent().getBooleanExtra("IS_RESTORE", false);
+
 		pathFile = getIntent().getStringExtra("CurrentPath");
 		if (pathFile == null) 
 			pathFile = Environment.getExternalStorageDirectory().getAbsolutePath();
+		fileUtils.currentPathFile = Environment.getExternalStorageDirectory().getAbsolutePath();
+
 		fileItems = FileUtils.getFileUtils(getApplication()).getListFileItems(pathFile);
 		listView.setAdapter(new ListFileAdpater(this, fileItems));
 		listView.setOnItemClickListener(this);
@@ -78,11 +84,26 @@ public class BrowseFileActivity extends BaseActivity {
 	
 	@OnClick(R.id.select_file) 
 	public void selectFile() {
-		if (currentPostion >= 0) {
-			FileItem fileItem = fileItems.get(currentPostion);
-			fileUtils.hideFiles(fileItem);
-			finish();
+		
+		if (isRestoreFile) {
+			fileUtils.currentFileItem.PathFile = fileUtils.currentPathFile + "/"  + fileUtils.currentFileItem.FileName;
+			fileUtils.restoreFileItem(fileUtils.currentFileItem,currentPostion);
+			Intent intent = new Intent(this, ListFilesAcitivity.class);
+			startActivity(intent);
+		} else {
+			if (currentPostion < 0) {
+				this.showDialog("Warning!", "Please select file or folder!");
+				currentPostion = -1;
+				return;
+			}
+			if (currentPostion >= 0) {
+				FileItem fileItem = fileItems.get(currentPostion);
+				fileUtils.hideFiles(fileItem);
+				Intent intent = new Intent(this, ListFilesAcitivity.class);
+				startActivity(intent);
+			}
 		}
+		
 		currentPostion = -1;
 	}
 
@@ -90,14 +111,33 @@ public class BrowseFileActivity extends BaseActivity {
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		// TODO Auto-generated method stub
-		FileItem fileItem = fileItems.get(position);
-		if (fileItem.IsFolder) {
-			Intent intent = new Intent(this, BrowseFileActivity.class);
-			intent.putExtra("CurrentPath", fileItem.PathFile);
-			startActivity(intent); 
+		if (isRestoreFile) {
+			currentPostion = 1;
+			// user run restore file
+			FileItem fileItem = fileItems.get(position);
+			if (fileItem.IsFolder) {
+				currentPostion = position;
+				
+				fileUtils.currentPathFile = fileItem.PathFile;
+				Intent intent = new Intent(this, BrowseFileActivity.class);
+				intent.putExtra("CurrentPath", fileItem.PathFile);
+				intent.putExtra("IS_RESTORE", true);
+
+				startActivity(intent); 
+				
+			}
 		} else {
-			currentPostion = position;
+			// user run add files
+			FileItem fileItem = fileItems.get(position);
+			if (fileItem.IsFolder) {
+				Intent intent = new Intent(this, BrowseFileActivity.class);
+				intent.putExtra("CurrentPath", fileItem.PathFile);
+				startActivity(intent); 
+			} else {
+				currentPostion = position;
+			}
 		}
+		
 	}
 	
 	

@@ -9,18 +9,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.demomobilesecurity.ListFilesAcitivity" >
 
-   <ListView
-       android:layout_weight="9"
-       android:id="@+id/list_file"
-       android:layout_width="fill_parent"
-       android:layout_height="0dip" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="YOUR SECRET FILES"
+        android:textSize="20sp" />
 
-   <Button
-       android:layout_weight="1"
-       android:id="@+id/add_files"
-       android:layout_width="fill_parent"
-       android:layout_height="0dip"
-       android:text=" File"
-       android:textSize="15dip" />
+    <ListView
+        android:id="@+id/list_file"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="8" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/add_files"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Add File"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/restore_files"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="Restore File"
+            android:textSize="15sp" />
+    </LinearLayout>
 
 </LinearLayout>

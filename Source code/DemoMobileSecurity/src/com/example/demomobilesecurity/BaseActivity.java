@@ -5,9 +5,14 @@ import java.lang.reflect.Field;
 
 import com.example.demomobilesecurity.utility.FileUtils;
 
+
+
 import butterknife.ButterKnife;
 import android.R.bool;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,23 +37,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener, 
 		return (T) findViewById(id);
 	}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_main);
-		fileUtils = FileUtils.getFileUtils(getApplication());
-		setContentView(getContentView());
-		ButterKnife.inject(this);
-		try {
-			registerEventOnClick();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,9 +81,32 @@ public abstract class BaseActivity extends Activity implements OnClickListener, 
 	     // do something here and don't write super.onBackPressed()
 		finish();
 	}
-	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(getContentView());
+		ButterKnife.inject(this);
+		fileUtils = fileUtils.getFileUtils(getApplication());
+	}
 	
 
 	protected abstract int getContentView();
+	
+	public void showDialog(String title, String content) {
+		AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+
+		dlgAlert.setMessage(content);
+		dlgAlert.setTitle(title);
+		dlgAlert.setCancelable(true);
+		
+			dlgAlert.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+		        public void onClick(DialogInterface dialog, int which) {
+		            //dismiss the dialog  
+		        	dialog.cancel();
+		          }
+		      });
+		
+		dlgAlert.create().show();
+	}
 	
 }

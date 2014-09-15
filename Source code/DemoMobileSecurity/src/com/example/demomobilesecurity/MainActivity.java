@@ -2,6 +2,7 @@ package com.example.demomobilesecurity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +20,6 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 	}
 
 	@Override
@@ -45,8 +45,18 @@ public class MainActivity extends BaseActivity {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if (v.getId() == R.id.view_files) {
+			
+			
+		}
+	}
+	
+	@OnClick(R.id.view_files)
+	public void viewFiles() {
+		if (!passwordText.getText().toString().isEmpty() && fileUtils.checkPassword(passwordText.getText().toString())) {
 			Intent intent = new Intent(this, ListFilesAcitivity.class);
 			startActivity(intent);
+		} else {
+			this.showDialog("Warning!", "Please input your password");
 		}
 	}
 

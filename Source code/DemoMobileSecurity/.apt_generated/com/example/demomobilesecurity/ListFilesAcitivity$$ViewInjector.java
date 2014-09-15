@@ -9,12 +9,31 @@ public class ListFilesAcitivity$$ViewInjector {
     View view;
     view = finder.findRequiredView(source, 2131230722, "field 'listView'");
     target.listView = (android.widget.ListView) view;
-    view = finder.findRequiredView(source, 2131230723, "field 'addFile'");
+    view = finder.findRequiredView(source, 2131230723, "field 'addFile' and method 'addFiles'");
     target.addFile = (android.widget.Button) view;
+    view.setOnClickListener(
+      new android.view.View.OnClickListener() {
+        @Override public void onClick(
+          android.view.View p0
+        ) {
+          target.addFiles();
+        }
+      });
+    view = finder.findRequiredView(source, 2131230724, "field 'restoreFile' and method 'onRestoreFileAction'");
+    target.restoreFile = (android.widget.Button) view;
+    view.setOnClickListener(
+      new android.view.View.OnClickListener() {
+        @Override public void onClick(
+          android.view.View p0
+        ) {
+          target.onRestoreFileAction();
+        }
+      });
   }
 
   public static void reset(com.example.demomobilesecurity.ListFilesAcitivity target) {
     target.listView = null;
     target.addFile = null;
+    target.restoreFile = null;
   }
 }
