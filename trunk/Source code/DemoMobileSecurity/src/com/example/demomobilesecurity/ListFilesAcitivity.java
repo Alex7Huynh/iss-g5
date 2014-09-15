@@ -11,6 +11,7 @@ import com.example.demomobilesecurity.entity.FileItem;
 import com.example.demomobilesecurity.utility.FileUtils;
 
 import butterknife.InjectView;
+import butterknife.OnClick;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -25,6 +27,8 @@ public class ListFilesAcitivity extends BaseActivity {
 
 	@InjectView(R.id.list_file) ListView listView;
     @InjectView(R.id.add_files) Button addFile;
+    @InjectView(R.id.restore_files) Button restoreFile;
+    public int currentPosition;
     
 	private List<FileItem> fileItems;
 
@@ -59,13 +63,25 @@ public class ListFilesAcitivity extends BaseActivity {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		if (v.getId() == R.id.add_files) {
-			Intent intent = new Intent(this, BrowseFileActivity.class);
-			intent.putExtra("CurrentPath", Environment.getExternalStorageDirectory().getAbsolutePath());
-			startActivityForResult(intent, requestCode);
-		}
 		
+		
+	}
+	
+	@OnClick(R.id.add_files)
+	public void addFiles() {
+		Intent intent = new Intent(this, BrowseFileActivity.class);
+		intent.putExtra("CurrentPath", Environment.getExternalStorageDirectory().getAbsolutePath());
+		startActivityForResult(intent, requestCode);
+	}
+	
+	@OnClick(R.id.restore_files) 
+	public void onRestoreFileAction(){
+		if (currentPosition >= 0) {
+			fileUtils.currentFileItem = this.fileItems.get(currentPosition);			Intent intent = new Intent(this, BrowseFileActivity.class);
+			intent.putExtra("IS_RESTORE", true);
+			startActivity(intent);
+		}
+		currentPosition = -1;
 	}
 
 	@Override
@@ -79,6 +95,14 @@ public class ListFilesAcitivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		listFileAdpater.updateDataList(fileUtils.hideFileItems);
+	}
+	
+	
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		// TODO Auto-generated method stub
+		currentPosition = position;
+		
 	}
 	
 	
