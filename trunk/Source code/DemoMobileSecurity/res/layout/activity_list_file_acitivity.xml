@@ -30,6 +30,7 @@
         android:orientation="horizontal" >
 
         <Button
+            android:drawableLeft="@drawable/ic_action_add"
             android:id="@+id/add_files"
             android:layout_width="0dip"
             android:layout_height="fill_parent"
@@ -38,6 +39,7 @@
             android:textSize="15sp" />
 
         <Button
+            android:drawableLeft="@drawable/ic_action_select"
             android:id="@+id/restore_files"
             android:layout_width="0dip"
             android:layout_height="fill_parent"

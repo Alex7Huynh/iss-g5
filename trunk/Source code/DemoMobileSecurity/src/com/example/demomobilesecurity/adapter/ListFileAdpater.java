@@ -50,13 +50,11 @@ public class ListFileAdpater extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		FileItemView holder;
-	    if (convertView != null) {
-	      holder = (FileItemView) convertView.getTag();
-	    } else {
+	   
 	    	convertView = inflater.inflate(R.layout.list_file_item, parent, false);
 	      holder = new FileItemView(convertView, mDataList.get(position));
 	      convertView.setTag(holder);
-	    }
+	    
 	    return convertView;
 
 	}
