@@ -5,15 +5,9 @@ http://whatis.techtarget.com/definition/mobile-security
 http://securelist.com/analysis/kaspersky-security-bulletin/58265/kaspersky-security-bulletin-2013-overall-statistics-for-2013/
 http://m.ictnews.vn/kinh-doanh/doanh-nghiep/ba-van-de-bao-mat-can-luu-y-danh-cho-doanh-nghiep-di-dong-118616.ict
 
-1. Giới thiệu
-- Bổ sung thêm thống kê về Mobile Security
-
 *Demo (Android)
 - Ẩn dữ liệu, chống ăn cắp thông tin
 - Bảo vệ hệ thống khỏi malware, spyware, adware (bổ sung sau)
-
-
-
 
 ---Phan cong cong viec.
 Tuan 1 - 03/09 - 07/09
@@ -25,7 +19,7 @@ Nhom thuc hanh: Xuan Long + Minh Do: implement demo
 Tuan 3 - 14/09 - 20/09:
 NHom ly thuyet: Alex Huynh: kiem tra demo (bug va error) - bo sung bao cao (neu co time)
 NHom thuc hanh: Xuan Long + Minh Do: tiep tuc implement cac tinh nang khac.
-****MUc tieu demo vao 20/09: hoan thanh dc phan an du lieu (documents, images hoac files).
+****Muc tieu demo vao 20/09: hoan thanh dc phan an du lieu (documents, images hoac files).
 Tuan 4 tro di:
 Tap trung hoan thanh bao cao trong 2 tuan.
 Tap trung lam demo tiep theo (phat hien malware, virus...) (notification canh bao).
