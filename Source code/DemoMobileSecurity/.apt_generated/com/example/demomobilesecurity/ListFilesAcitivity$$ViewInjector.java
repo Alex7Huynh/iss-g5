@@ -7,8 +7,6 @@ import butterknife.ButterKnife.Finder;
 public class ListFilesAcitivity$$ViewInjector {
   public static void inject(Finder finder, final com.example.demomobilesecurity.ListFilesAcitivity target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131230722, "field 'listView'");
-    target.listView = (android.widget.ListView) view;
     view = finder.findRequiredView(source, 2131230723, "field 'addFile' and method 'addFiles'");
     target.addFile = (android.widget.Button) view;
     view.setOnClickListener(
@@ -19,6 +17,8 @@ public class ListFilesAcitivity$$ViewInjector {
           target.addFiles();
         }
       });
+    view = finder.findRequiredView(source, 2131230722, "field 'listView'");
+    target.listView = (android.widget.ListView) view;
     view = finder.findRequiredView(source, 2131230724, "field 'restoreFile' and method 'onRestoreFileAction'");
     target.restoreFile = (android.widget.Button) view;
     view.setOnClickListener(
@@ -32,8 +32,8 @@ public class ListFilesAcitivity$$ViewInjector {
   }
 
   public static void reset(com.example.demomobilesecurity.ListFilesAcitivity target) {
-    target.listView = null;
     target.addFile = null;
+    target.listView = null;
     target.restoreFile = null;
   }
 }

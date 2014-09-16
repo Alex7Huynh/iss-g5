@@ -140,7 +140,9 @@ public class FileUtils {
 	        out = null;
 
 	        // delete the original file
-	        new File(inputPath).delete();  
+	       
+	        //new File(inputFile).delete();  
+	       mContext.deleteFile(inputFile);
 
 
 	    } 

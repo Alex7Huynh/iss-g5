@@ -9,6 +9,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.demomobilesecurity.MainActivity" >
 
+    <ImageView
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_gravity="center"
+        android:src="@drawable/icon_security" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="40dip"
@@ -35,6 +41,7 @@
         android:textSize="15dip" />
 
     <Button
+
         android:id="@+id/view_files"
         android:layout_width="200dip"
         android:layout_height="40dip"

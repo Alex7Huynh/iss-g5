@@ -61,10 +61,13 @@ public final class R {
         public static final int ic_launcher=0x7f020024;
         public static final int ic_notif_sdcard_rescan=0x7f020025;
         public static final int icon=0x7f020026;
-        public static final int item_selector=0x7f020027;
-        public static final int list_actions=0x7f020028;
-        public static final int list_actions_blu=0x7f020029;
-        public static final int list_actions_glow=0x7f02002a;
+        public static final int icon_security=0x7f020027;
+        public static final int internet_security_it=0x7f020028;
+        public static final int item_selector=0x7f020029;
+        public static final int list_actions=0x7f02002a;
+        public static final int list_actions_blu=0x7f02002b;
+        public static final int list_actions_glow=0x7f02002c;
+        public static final int unlock_icon=0x7f02002d;
     }
     public static final class id {
         public static final int action_settings=0x7f08000a;

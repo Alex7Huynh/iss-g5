@@ -24,30 +24,37 @@ import android.widget.ListView;
 
 public class BrowseFileActivity extends BaseActivity {
 
-	@InjectView(R.id.browse_list_file) ListView listView;
-	@InjectView(R.id.select_file) Button selectFile;
-	
+	@InjectView(R.id.browse_list_file)
+	ListView listView;
+	@InjectView(R.id.select_file)
+	Button selectFile;
+
 	private int currentPostion = -1;
-	
+
 	private List<FileItem> fileItems;
 	private String pathFile;
-	
+
 	public boolean isRestoreFile;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		isRestoreFile = getIntent().getBooleanExtra("IS_RESTORE", false);
 
 		pathFile = getIntent().getStringExtra("CurrentPath");
-		if (pathFile == null) 
-			pathFile = Environment.getExternalStorageDirectory().getAbsolutePath();
-		fileUtils.currentPathFile = Environment.getExternalStorageDirectory().getAbsolutePath();
+		if (pathFile == null)
+			pathFile = Environment.getExternalStorageDirectory()
+					.getAbsolutePath();
+		fileUtils.currentPathFile = fileUtils.currentPathFile == null ? Environment
+				.getExternalStorageDirectory().getAbsolutePath()
+				: fileUtils.currentPathFile;
 
-		fileItems = FileUtils.getFileUtils(getApplication()).getListFileItems(pathFile);
+		fileItems = FileUtils.getFileUtils(getApplication()).getListFileItems(
+				pathFile);
 		listView.setAdapter(new ListFileAdpater(this, fileItems));
 		listView.setOnItemClickListener(this);
-	
+
 	}
 
 	@Override
@@ -80,14 +87,15 @@ public class BrowseFileActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		return R.layout.activity_browse_file;
 	}
-	
-	
-	@OnClick(R.id.select_file) 
+
+	@OnClick(R.id.select_file)
 	public void selectFile() {
-		
+
 		if (isRestoreFile) {
-			fileUtils.currentFileItem.PathFile = fileUtils.currentPathFile + "/"  + fileUtils.currentFileItem.FileName;
-			fileUtils.restoreFileItem(fileUtils.currentFileItem,currentPostion);
+			fileUtils.currentFileItem.PathFile = fileUtils.currentPathFile
+					+ "/" + fileUtils.currentFileItem.FileName;
+			fileUtils
+					.restoreFileItem(fileUtils.currentFileItem, currentPostion);
 			Intent intent = new Intent(this, ListFilesAcitivity.class);
 			startActivity(intent);
 		} else {
@@ -103,7 +111,7 @@ public class BrowseFileActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		}
-		
+
 		currentPostion = -1;
 	}
 
@@ -117,14 +125,14 @@ public class BrowseFileActivity extends BaseActivity {
 			FileItem fileItem = fileItems.get(position);
 			if (fileItem.IsFolder) {
 				currentPostion = position;
-				
+
 				fileUtils.currentPathFile = fileItem.PathFile;
 				Intent intent = new Intent(this, BrowseFileActivity.class);
 				intent.putExtra("CurrentPath", fileItem.PathFile);
 				intent.putExtra("IS_RESTORE", true);
 
-				startActivity(intent); 
-				
+				startActivity(intent);
+
 			}
 		} else {
 			// user run add files
@@ -132,13 +140,12 @@ public class BrowseFileActivity extends BaseActivity {
 			if (fileItem.IsFolder) {
 				Intent intent = new Intent(this, BrowseFileActivity.class);
 				intent.putExtra("CurrentPath", fileItem.PathFile);
-				startActivity(intent); 
+				startActivity(intent);
 			} else {
 				currentPostion = position;
 			}
 		}
-		
+
 	}
-	
-	
+
 }
