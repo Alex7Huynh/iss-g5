@@ -17,8 +17,6 @@ public class ListFilesAcitivity$$ViewInjector {
           target.addFiles();
         }
       });
-    view = finder.findRequiredView(source, 2131230722, "field 'listView'");
-    target.listView = (android.widget.ListView) view;
     view = finder.findRequiredView(source, 2131230724, "field 'restoreFile' and method 'onRestoreFileAction'");
     target.restoreFile = (android.widget.Button) view;
     view.setOnClickListener(
@@ -29,11 +27,13 @@ public class ListFilesAcitivity$$ViewInjector {
           target.onRestoreFileAction();
         }
       });
+    view = finder.findRequiredView(source, 2131230722, "field 'listView'");
+    target.listView = (android.widget.ListView) view;
   }
 
   public static void reset(com.example.demomobilesecurity.ListFilesAcitivity target) {
     target.addFile = null;
-    target.listView = null;
     target.restoreFile = null;
+    target.listView = null;
   }
 }

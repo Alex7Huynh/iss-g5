@@ -13,6 +13,7 @@
         android:layout_width="100dip"
         android:layout_height="100dip"
         android:layout_gravity="center"
+        android:scaleType="centerInside"
         android:src="@drawable/icon_security" />
 
     <TextView
@@ -41,7 +42,6 @@
         android:textSize="15dip" />
 
     <Button
-
         android:id="@+id/view_files"
         android:layout_width="200dip"
         android:layout_height="40dip"
@@ -49,5 +49,21 @@
         android:layout_marginTop="10dip"
         android:text="View Files"
         android:textSize="15dip" />
+
+    <Button
+        android:id="@+id/change_password"
+        android:layout_width="200dip"
+        android:layout_height="40dip"
+        android:layout_gravity="center"
+        android:text="Change Password"
+        android:textSize="15dip" />
+    
+    <Button 
+        android:id="@+id/view_sms_app"
+        android:text="View SMS App"
+         android:textSize="15dip"
+        android:layout_gravity="center"
+        android:layout_height="40dip"
+        android:layout_width="200dip"/>
 
 </LinearLayout>

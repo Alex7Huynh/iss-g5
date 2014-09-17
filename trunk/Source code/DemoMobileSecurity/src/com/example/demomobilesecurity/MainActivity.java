@@ -16,10 +16,15 @@ public class MainActivity extends BaseActivity {
 
 	@InjectView(R.id.password) EditText passwordText;
 	@InjectView(R.id.view_files) Button viewFile;
+	@InjectView(R.id.change_password) Button changePassword;
+	@InjectView(R.id.view_sms_app) Button viewSMSApp;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+	
 	}
 
 	@Override
@@ -45,7 +50,9 @@ public class MainActivity extends BaseActivity {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if (v.getId() == R.id.view_files) {
-			
+			Intent intent = new Intent(this, MainActivity.class);
+			intent.putExtra("ChangePassword", true);
+			startActivity(intent);
 			
 		}
 	}
@@ -58,6 +65,11 @@ public class MainActivity extends BaseActivity {
 		} else {
 			this.showDialog("Warning!", "Please input your password");
 		}
+	}
+	
+	@OnClick(R.id.change_password)
+	public void changePassword() {
+		
 	}
 
 	@Override
