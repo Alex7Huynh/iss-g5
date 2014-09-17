@@ -26,6 +26,7 @@ public class FileItemView {
 		fileName.setText(mFileItem.FileName);
 		filePath.setText(mFileItem.PathFile);
 		
+		
 	}
 
 }
