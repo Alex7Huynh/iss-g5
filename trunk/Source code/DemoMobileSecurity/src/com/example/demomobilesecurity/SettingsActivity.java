@@ -26,23 +26,37 @@ public class SettingsActivity extends BaseActivity {
 
 	@OnClick(R.id.bn_confirm)
 	public void onConfirm() {
-		if (et_oldpass.getEditableText().toString().isEmpty())
+		if (et_oldpass.getEditableText().toString().isEmpty()){
+			this.showDialog("Error", "Please input your old password!");
 			return;
+		}
 
-		if (et_oldpass.getEditableText().toString().trim().isEmpty())
+		if (et_oldpass.getEditableText().toString().trim().isEmpty()){
+			this.showDialog("Error", "Please input your new password!");
 			return;
-
+		}
 		if (et_newpass.getEditableText().toString().trim().isEmpty())
+		{
+			this.showDialog("Error", "Please input your new password!");
 			return;
+		}
+
+		String oldPassword = fileUtils.getPassword();
+		if (!oldPassword.equals(et_oldpass.getEditableText().toString())) {
+			this.showDialog("Error", "Your old password does not matched!");
+
+			return;
+		}
 
 		if (et_newpass.getEditableText().toString()
-				.compareTo(et_conpass.getEditableText().toString()) != 0)
+				.compareTo(et_conpass.getEditableText().toString()) != 0){
+			this.showDialog("Error", "Your confirm password does not matched!");
 			return;
+		}
 
 		fileUtils.setValueData(ConstantValues.USER_PASSWORD, et_newpass
 				.getEditableText().toString());
-		Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-		startActivity(intent);
+		
 		finish();
 
 	}
