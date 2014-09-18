@@ -56,6 +56,8 @@ public class ItemViewAdapter extends BaseAdapter {
 			convertView = mInflater
 					.inflate(R.layout.item_layout, parent, false);
 			tag = new ItemView(convertView);
+			tag.mRefFile = mItemList.get(position);
+			tag.setViews();
 			convertView.setTag(tag);
 		}
 		return convertView;

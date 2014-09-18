@@ -7,5 +7,6 @@
     <string name="title_activity_browse_acitivity">BrowseAcitivity</string>
     <string name="title_activity_browse_file">BrowseFileActivity</string>
     <string name="title_hidden_activity">Hide Your Files</string>
+    <string name="title_setting_activity">Settings</string>
 
 </resources>
