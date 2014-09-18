@@ -1,5 +1,6 @@
 package com.example.demomobilesecurity.adapter;
 
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -23,6 +24,18 @@ public class ItemView {
 	public ItemView (View parentview){
 		mParentView = parentview;
 		ButterKnife.inject(this, mParentView);
+	}
+	
+	
+	public void setViews(){
+		cb_select.setChecked(false);
+		tv_file.setText(mRefFile.PathFile);
+		tv_file.setVisibility(View.GONE);
+		iv_view.setImageBitmap(BitmapFactory.decodeFile(mRefFile.PathFile));
+	}
+	
+	public void setBitMap (){
+		
 	}
 	
 	@OnClick(R.id.cb_select)

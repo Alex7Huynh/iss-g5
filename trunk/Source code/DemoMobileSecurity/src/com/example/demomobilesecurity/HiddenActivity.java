@@ -27,9 +27,17 @@ public class HiddenActivity extends BaseActivity {
 		startActivity(intent);
 	}
 
+	@OnClick(R.id.in_settings)
+	public void showSettings() {
+		Intent intent = new Intent(getApplicationContext(),
+				SettingsActivity.class);
+		startActivity(intent);
+	}
+
 	@OnClick(R.id.in_picture)
 	public void browseHiddenPicture() {
-
+		Intent intent = new Intent(getApplicationContext(), FileActivity.class);
+		startActivity(intent);
 	}
 
 	@Override

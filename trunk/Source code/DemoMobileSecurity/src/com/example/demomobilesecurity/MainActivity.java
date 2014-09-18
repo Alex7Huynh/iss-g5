@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity {
 				.toString());
 		editor.commit();
 		
-		Intent intent = new Intent(this, ListFilesAcitivity.class);
+		Intent intent = new Intent(this, HiddenActivity.class);
 		startActivity(intent);
 	}
 	

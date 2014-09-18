@@ -24,12 +24,24 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".HiddenActivity"
+            android:label="@string/title_hidden_activity" >
+        </activity>
+        <activity
             android:name=".ListFilesAcitivity"
             android:label="@string/title_activity_browse_acitivity" >
         </activity>
         <activity
             android:name=".BrowseFileActivity"
             android:label="@string/title_activity_browse_file" >
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_setting_activity" >
+        </activity>
+        <activity
+            android:name=".FileActivity"
+            android:label="@string/title_hidden_activity" >
         </activity>
     </application>
 
