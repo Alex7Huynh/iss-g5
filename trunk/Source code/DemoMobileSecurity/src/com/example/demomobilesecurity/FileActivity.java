@@ -11,10 +11,10 @@ import butterknife.InjectView;
 
 import com.example.demomobilesecurity.adapter.ItemViewAdapter;
 import com.example.demomobilesecurity.entity.FileItem;
+import com.example.demomobilesecurity.utility.ConstantValues;
 
 public class FileActivity extends BaseActivity {
 
-	private String mExtra;
 
 	@InjectView(R.id.lv_files)
 	ListView lv_files;
@@ -26,15 +26,52 @@ public class FileActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
+		int extra = getIntent().getExtras().getInt(ConstantValues.EXTRA);
 		arrfiles = new ArrayList<FileItem>();
 
-		String[] projections = { MediaStore.Images.Media.DATA,
-				MediaStore.Images.Media.DISPLAY_NAME,
-				MediaStore.Images.Media.DATE_ADDED };
+		String[] projections = new String[3];
+		Cursor cursor;
+		switch (extra) {
+		case ConstantValues.PICTURE:
+			projections[0] = MediaStore.Images.Media.DATA;
+			projections[1] = MediaStore.Images.Media.DISPLAY_NAME;
+			projections[2] = MediaStore.Images.Media.DATE_ADDED;
 
-		Cursor cursor = getContentResolver().query(
-				MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projections,
-				null, null, MediaStore.Images.Media.DATE_ADDED);
+			cursor = getContentResolver().query(
+					MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projections,
+					null, null, MediaStore.Images.Media.DATE_ADDED);
+			break;
+		case ConstantValues.AUDIO:
+			projections[0] = MediaStore.Audio.Media.DATA;
+			projections[1] = MediaStore.Audio.Media.DISPLAY_NAME;
+			projections[2] = MediaStore.Audio.Media.DATE_ADDED;
+
+			cursor = getContentResolver().query(
+					MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projections,
+					null, null, MediaStore.Audio.Media.DATE_ADDED);
+			break;
+		case ConstantValues.VIDEO:
+			projections[0] = MediaStore.Video.Media.DATA;
+			projections[1] = MediaStore.Video.Media.DISPLAY_NAME;
+			projections[2] = MediaStore.Video.Media.DATE_ADDED;
+
+			cursor = getContentResolver().query(
+					MediaStore.Video.Media.EXTERNAL_CONTENT_URI, projections,
+					null, null, MediaStore.Video.Media.DATE_ADDED);
+			break;
+		default:
+			projections[0] = MediaStore.Files.FileColumns.DATA;
+			projections[1] = MediaStore.Files.FileColumns.DISPLAY_NAME;
+			projections[2] = MediaStore.Files.FileColumns.DATE_ADDED;
+
+			String selection = MediaStore.Files.FileColumns.MEDIA_TYPE + "="
+			        + MediaStore.Files.FileColumns.MEDIA_TYPE_NONE;
+			String[] selectionArgs = null;
+			
+			cursor = getContentResolver().query(
+					MediaStore.Files.getContentUri("external"), projections,
+					selection, selectionArgs, MediaStore.Files.FileColumns.DATE_ADDED);
+		}
 
 		while (cursor.moveToNext()) {
 			FileItem item = new FileItem();
@@ -42,10 +79,10 @@ public class FileActivity extends BaseActivity {
 			item.FileName = cursor.getString(1);
 
 			arrfiles.add(item);
+
+			fileadapter = new ItemViewAdapter(arrfiles, this, extra);
+			lv_files.setAdapter(fileadapter);
 		}
-		
-		fileadapter = new ItemViewAdapter(arrfiles, this);
-		lv_files.setAdapter(fileadapter);
 	}
 
 	@Override

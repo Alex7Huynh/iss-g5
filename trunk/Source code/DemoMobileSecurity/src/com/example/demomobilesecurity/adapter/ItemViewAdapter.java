@@ -16,16 +16,18 @@ public class ItemViewAdapter extends BaseAdapter {
 	ArrayList<FileItem> mItemList;
 	Activity mActivity;
 	LayoutInflater mInflater;
+	int mExtra;
 
 	public ItemViewAdapter() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemViewAdapter(ArrayList<FileItem> mItemList, Activity mActivity) {
+	public ItemViewAdapter(ArrayList<FileItem> mItemList, Activity mActivity, int extra) {
 		super();
 		this.mItemList = mItemList;
 		this.mActivity = mActivity;
 		this.mInflater = this.mActivity.getLayoutInflater();
+		this.mExtra = extra;
 	}
 
 	@Override
@@ -57,6 +59,7 @@ public class ItemViewAdapter extends BaseAdapter {
 					.inflate(R.layout.item_layout, parent, false);
 			tag = new ItemView(convertView);
 			tag.mRefFile = mItemList.get(position);
+			tag.setExtra(mExtra);
 			tag.setViews();
 			convertView.setTag(tag);
 		}

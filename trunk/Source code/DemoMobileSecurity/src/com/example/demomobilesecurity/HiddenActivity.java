@@ -1,5 +1,6 @@
 package com.example.demomobilesecurity;
 
+import com.example.demomobilesecurity.utility.ConstantValues;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import android.app.Activity;
@@ -35,11 +36,33 @@ public class HiddenActivity extends BaseActivity {
 	}
 
 	@OnClick(R.id.in_picture)
-	public void browseHiddenPicture() {
+	public void browsePicture() {
 		Intent intent = new Intent(getApplicationContext(), FileActivity.class);
+		intent.putExtra(ConstantValues.EXTRA, ConstantValues.PICTURE);
 		startActivity(intent);
 	}
 
+	@OnClick(R.id.in_audio)
+	public void browseAudio() {
+		Intent intent = new Intent(getApplicationContext(), FileActivity.class);
+		intent.putExtra(ConstantValues.EXTRA, ConstantValues.AUDIO);
+		startActivity(intent);
+	}
+	
+	@OnClick(R.id.in_video)
+	public void browseVideo() {
+		Intent intent = new Intent(getApplicationContext(), FileActivity.class);
+		intent.putExtra(ConstantValues.EXTRA, ConstantValues.VIDEO);
+		startActivity(intent);
+	}
+	
+	@OnClick(R.id.in_file)
+	public void browseFile() {
+		Intent intent = new Intent(getApplicationContext(), FileActivity.class);
+		intent.putExtra(ConstantValues.EXTRA, ConstantValues.FILE);
+		startActivity(intent);
+	}
+	
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
