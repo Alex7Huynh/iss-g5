@@ -11,6 +11,7 @@ import butterknife.OnClick;
 
 import com.example.demomobilesecurity.R;
 import com.example.demomobilesecurity.entity.FileItem;
+import com.example.demomobilesecurity.utility.ConstantValues;
 
 public class ItemView {
 
@@ -20,6 +21,7 @@ public class ItemView {
 	
 	private View mParentView;
 	public FileItem mRefFile;
+	int mExtra;
 	
 	public ItemView (View parentview){
 		mParentView = parentview;
@@ -29,13 +31,33 @@ public class ItemView {
 	
 	public void setViews(){
 		cb_select.setChecked(false);
+		switch (mExtra) {
+		case ConstantValues.PICTURE:
+			tv_file.setText(mRefFile.PathFile);
+			tv_file.setVisibility(View.GONE);
+			iv_view.setImageBitmap(BitmapFactory.decodeFile(mRefFile.PathFile));
+			return;
+		case ConstantValues.AUDIO:
+			iv_view.setImageDrawable(mParentView.getContext().getResources()
+					.getDrawable(R.drawable.filetype_music));
+			break;
+		case ConstantValues.VIDEO:
+			iv_view.setImageDrawable(mParentView.getContext().getResources()
+					.getDrawable(R.drawable.filetype_video));
+			break;
+		case ConstantValues.FILE:
+			iv_view.setImageDrawable(mParentView.getContext().getResources()
+					.getDrawable(R.drawable.filetype_sys_file));
+			break;
+			// tv_file.setVisibility(View.GONE);
+
+		}
 		tv_file.setText(mRefFile.PathFile);
-		tv_file.setVisibility(View.GONE);
-		iv_view.setImageBitmap(BitmapFactory.decodeFile(mRefFile.PathFile));
 	}
-	
-	public void setBitMap (){
-		
+
+	public void setExtra(int extra) {
+		mExtra = extra;
+
 	}
 	
 	@OnClick(R.id.cb_select)
