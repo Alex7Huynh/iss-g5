@@ -1,10 +1,14 @@
 package com.example.demomobilesecurity;
 
+import com.example.demomobilesecurity.utility.ConstantValues;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,15 +20,33 @@ public class MainActivity extends BaseActivity {
 
 	@InjectView(R.id.password) EditText passwordText;
 	@InjectView(R.id.view_files) Button viewFile;
-	@InjectView(R.id.change_password) Button changePassword;
-	@InjectView(R.id.view_sms_app) Button viewSMSApp;
+	//@InjectView(R.id.change_password) Button changePassword;
+	//@InjectView(R.id.view_sms_app) Button viewSMSApp;
+	@InjectView(R.id.createpass)	Button createpass;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-	
+
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
+		SharedPreferences passwords = getSharedPreferences(
+				ConstantValues.USER_PASSWORD,
+				android.content.Context.MODE_PRIVATE);
+		String passtext = passwords.getString(ConstantValues.USER_PASSWORD, "");
+		if (passtext == "") {
+			createpass.setEnabled(true);
+			viewFile.setEnabled(false);
+		} else {
+			createpass.setEnabled(false);
+			viewFile.setEnabled(true);
+		}
 	}
 
 	@Override
@@ -50,27 +72,47 @@ public class MainActivity extends BaseActivity {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if (v.getId() == R.id.view_files) {
-			Intent intent = new Intent(this, MainActivity.class);
-			intent.putExtra("ChangePassword", true);
-			startActivity(intent);
-			
+
 		}
+	}
+
+	@OnClick(R.id.createpass)
+	public void createPassword() {
+		if (passwordText.getText().toString().isEmpty())
+			return;
+
+		if (passwordText.getText().toString().trim().isEmpty())
+			return;
+
+		SharedPreferences passwords = getSharedPreferences(
+				ConstantValues.USER_PASSWORD,
+				android.content.Context.MODE_PRIVATE);
+		Editor editor = passwords.edit();
+		editor.putString(ConstantValues.USER_PASSWORD, passwordText.getText()
+				.toString());
+		editor.commit();
+		
+		Intent intent = new Intent(this, ListFilesAcitivity.class);
+		startActivity(intent);
 	}
 	
 	@OnClick(R.id.view_files)
 	public void viewFiles() {
-		if (!passwordText.getText().toString().isEmpty() && fileUtils.checkPassword(passwordText.getText().toString())) {
-			Intent intent = new Intent(this, ListFilesAcitivity.class);
-			startActivity(intent);
-		} else {
-			this.showDialog("Warning!", "Please input your password");
+
+		SharedPreferences passwords = getSharedPreferences(
+				ConstantValues.USER_PASSWORD,
+				android.content.Context.MODE_PRIVATE);
+		String passtext = passwords.getString(ConstantValues.USER_PASSWORD, "");
+		if (passtext.compareTo(passwordText.getText().toString()) == 0) {
+			 Intent intent = new Intent(this, HiddenActivity.class);
+			 startActivity(intent);
 		}
 	}
 	
-	@OnClick(R.id.change_password)
-	public void changePassword() {
-		
-	}
+//	@OnClick(R.id.change_password)
+//	public void changePassword() {
+//		
+//	}
 
 	@Override
 	protected int getContentView() {
