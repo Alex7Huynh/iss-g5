@@ -18,30 +18,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:text="Your Hidden Files" />
+                android:text="Your Functions" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" 
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
 
             <ImageButton
                 android:id="@+id/in_hiddenfile"
-                android:layout_width="200px"
-                android:layout_height="150px"
+                android:layout_width="0dip"
+                android:layout_height="100dip"
                 android:layout_gravity="center_horizontal"
-                android:scaleType="fitXY"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
                 android:src="@drawable/filetype_sys_dir" />
-            
-            <ImageButton 
+
+            <ImageButton
                 android:id="@+id/in_settings"
-                android:layout_width="200px"
-                android:layout_height="150px"
+                android:layout_width="0dip"
+                android:layout_height="100dip"
                 android:layout_gravity="center_horizontal"
-                android:scaleType="fitXY"
-                android:src="@drawable/filetype_apk"/>
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/filetype_apk" />
         </LinearLayout>
     </LinearLayout>
 
@@ -69,19 +71,21 @@
 
             <ImageButton
                 android:id="@+id/in_picture"
-                android:layout_width="200px"
-                android:layout_height="150px"
-                android:scaleType="fitXY"
+                android:layout_width="0dip"
+                android:layout_height="100dip"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
                 android:src="@drawable/filetype_image" />
-            
+
             <ImageButton
                 android:id="@+id/in_video"
-                android:layout_width="200px"
-                android:layout_height="150px"
-                android:scaleType="fitXY"
+                android:layout_width="0dip"
+                android:layout_height="100dip"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
                 android:src="@drawable/filetype_video" />
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -90,16 +94,18 @@
 
             <ImageButton
                 android:id="@+id/in_audio"
-                android:layout_width="200px"
-                android:layout_height="150px"
-                android:scaleType="fitXY"
+                android:layout_width="0dip"
+                android:layout_height="100dip"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
                 android:src="@drawable/filetype_music" />
-            
+
             <ImageButton
                 android:id="@+id/in_file"
-                android:layout_width="200px"
-                android:layout_height="150px"
-                android:scaleType="fitXY"
+                android:layout_width="0dip"
+                android:layout_height="100dip"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
                 android:src="@drawable/filetype_sys_file" />
         </LinearLayout>
     </LinearLayout>

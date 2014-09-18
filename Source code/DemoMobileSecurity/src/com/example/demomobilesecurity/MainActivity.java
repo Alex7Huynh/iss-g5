@@ -36,10 +36,8 @@ public class MainActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 
-		SharedPreferences passwords = getSharedPreferences(
-				ConstantValues.USER_PASSWORD,
-				android.content.Context.MODE_PRIVATE);
-		String passtext = passwords.getString(ConstantValues.USER_PASSWORD, "");
+		
+		String passtext = fileUtils.getPassword();
 		if (passtext == "") {
 			createpass.setEnabled(true);
 			viewFile.setEnabled(false);
@@ -99,13 +97,13 @@ public class MainActivity extends BaseActivity {
 	@OnClick(R.id.view_files)
 	public void viewFiles() {
 
-		SharedPreferences passwords = getSharedPreferences(
-				ConstantValues.USER_PASSWORD,
-				android.content.Context.MODE_PRIVATE);
-		String passtext = passwords.getString(ConstantValues.USER_PASSWORD, "");
+		
+		String passtext = fileUtils.getPassword();
 		if (passtext.compareTo(passwordText.getText().toString()) == 0) {
 			 Intent intent = new Intent(this, HiddenActivity.class);
 			 startActivity(intent);
+		}else{
+			this.showDialog("Error", "Your password does not matched!");
 		}
 	}
 	

@@ -17,16 +17,16 @@ public class ListFileAdpater extends BaseAdapter {
 	public Activity mParentActivity;
 	public List<FileItem> mDataList;
 	private LayoutInflater inflater;
+
 	public ListFileAdpater() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public ListFileAdpater(Activity parentActivity, List<FileItem> dataList) {
 		mParentActivity = parentActivity;
 		mDataList = dataList;
 		inflater = mParentActivity.getLayoutInflater();
 	}
-	
 
 	@Override
 	public int getCount() {
@@ -50,15 +50,15 @@ public class ListFileAdpater extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		FileItemView holder;
-	   
-	    	convertView = inflater.inflate(R.layout.list_file_item, parent, false);
-	      holder = new FileItemView(convertView, mDataList.get(position));
-	      convertView.setTag(holder);
-	    
-	    return convertView;
+
+		convertView = inflater.inflate(R.layout.list_file_item, parent, false);
+		holder = new FileItemView(convertView, mDataList.get(position));
+		convertView.setTag(holder);
+
+		return convertView;
 
 	}
-	
+
 	public void updateDataList(List<FileItem> listFiles) {
 		this.mDataList = listFiles;
 		this.notifyDataSetChanged();

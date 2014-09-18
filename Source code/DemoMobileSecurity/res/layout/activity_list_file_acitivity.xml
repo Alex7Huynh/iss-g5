@@ -30,6 +30,7 @@
         android:orientation="horizontal" >
 
         <Button
+            android:visibility="gone"
             android:drawableLeft="@drawable/ic_action_add"
             android:id="@+id/add_files"
             android:layout_width="0dip"
@@ -44,6 +45,7 @@
             android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Restore File"
             android:textSize="15sp" />
     </LinearLayout>

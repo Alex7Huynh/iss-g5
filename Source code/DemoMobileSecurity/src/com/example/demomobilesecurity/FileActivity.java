@@ -6,8 +6,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.ListView;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 import com.example.demomobilesecurity.adapter.ItemViewAdapter;
 import com.example.demomobilesecurity.entity.FileItem;
@@ -77,7 +79,8 @@ public class FileActivity extends BaseActivity {
 			FileItem item = new FileItem();
 			item.PathFile = cursor.getString(0);
 			item.FileName = cursor.getString(1);
-
+			item.FileType = MimeTypeMap.getFileExtensionFromUrl(item.FileName);
+			item.IsFolder = item.FileType == null || item.FileType.isEmpty(); 
 			arrfiles.add(item);
 
 			fileadapter = new ItemViewAdapter(arrfiles, this, extra);
@@ -97,4 +100,15 @@ public class FileActivity extends BaseActivity {
 		return R.layout.activity_file_activity;
 	}
 
+	@OnClick(R.id.bn_Hide)
+	public void hideFiles() {
+		for (FileItem fileItem : arrfiles) {
+			if (fileItem.IsFolder)
+				continue;
+			if (!fileItem.IsSelected)
+				continue;
+			fileUtils.hideFiles(fileItem);
+		}
+		finish();
+	}
 }
