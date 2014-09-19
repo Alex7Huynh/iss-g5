@@ -57,7 +57,7 @@ public class FileUtils {
 	
 	public String getPassword() {
 		PASSWORD = this.getValueData(ConstantValues.USER_PASSWORD);
-		if (PASSWORD.equals("Demo123")) {
+		if (PASSWORD == null  || PASSWORD.equals("Demo123")) {
 			this.setValueData(ConstantValues.USER_PASSWORD, "123");
 
 		}
