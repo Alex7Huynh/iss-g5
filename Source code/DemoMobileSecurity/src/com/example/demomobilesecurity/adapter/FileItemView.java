@@ -4,10 +4,13 @@ import com.example.demomobilesecurity.R;
 import com.example.demomobilesecurity.entity.FileItem;
 
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnCheckedChanged;
+import butterknife.OnClick;
 
 public class FileItemView {
 
@@ -17,17 +20,21 @@ public class FileItemView {
 	TextView filePath;
 	@InjectView(R.id.file_item_avatar)
 	ImageView fileAvatar;
+	@InjectView(R.id.file_item_select)
+	CheckBox fileItemSelect;
 
 	private View mParentView;
 	private FileItem mFileItem;
-
-	public FileItemView(View parentView, FileItem fileItem) {
+	private boolean isRestoreMode;
+	
+	public FileItemView(View parentView, FileItem fileItem, boolean isRestore) {
 		// TODO Auto-generated constructor stub
 		mParentView = parentView;
 		ButterKnife.inject(this, parentView);
 		mFileItem = fileItem;
 		fileName.setText(mFileItem.FileName);
 		filePath.setText(mFileItem.PathFile);
+		isRestoreMode = isRestore;
 
 		if (fileItem.FileType.equalsIgnoreCase("jpg")
 				|| fileItem.FileType.equalsIgnoreCase("png")) {
@@ -42,7 +49,18 @@ public class FileItemView {
 				|| fileItem.FileType.equalsIgnoreCase("doc")) {
 			fileAvatar.setImageResource(R.drawable.filetype_document);
 		}
+		if (isRestoreMode) {
+			fileItemSelect.setVisibility(View.GONE);
+		}else{
+			fileItemSelect.setVisibility(View.VISIBLE);
 
+		}
+
+	}
+	
+	@OnClick(R.id.file_item_select)
+	public void onCheck(){
+		mFileItem.IsSelected = fileItemSelect.isChecked();
 	}
 
 }

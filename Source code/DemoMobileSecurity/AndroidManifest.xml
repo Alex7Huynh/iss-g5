@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,29 +27,34 @@
         </activity>
         <activity
             android:name=".ListFilesAcitivity"
-            android:label="@string/title_activity_browse_acitivity" >
+            android:label="@string/title_activity_browse_acitivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".BrowseFileActivity"
-            android:label="@string/title_activity_browse_file" >
+            android:label="@string/title_activity_browse_file"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ChangePasswordActivity"
-            android:label="@string/title_activity_change_password" >
+            android:label="@string/title_activity_change_password"
+            android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name=".HiddenActivity"
-            android:label="@string/title_hidden_activity" >
+            android:label="@string/title_hidden_activity"
+            android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name=".FileActivity"
-            android:label="Add More Files" >
+            android:label="Add More Files"
+            android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name=".SettingsActivity"
-            android:label="Setting Activity" >
+            android:label="Setting Activity"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
-    
 
 </manifest>

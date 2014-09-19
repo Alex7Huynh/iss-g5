@@ -33,14 +33,16 @@ public class FileUtils {
 
 	private Context mContext;
 	public List<FileItem> hideFileItems;
-	public FileItem currentFileItem;
+	public FileItem fi;
 	public String currentPathFile;
+	public List<FileItem> currentFileItems;
 
 	public FileUtils(Context context) {
 		// TODO Auto-generated constructor stub
 		mContext = context;
+		currentFileItems = new ArrayList<FileItem>();
 		hideFileItems = getHiddenFileItems();
-
+		
 	}
 
 	public boolean checkPassword(String password) {
@@ -127,9 +129,10 @@ public class FileUtils {
 	}
 
 	public void restoreFileItem(FileItem fileItem, int position) {
-		this.restoreFile(fileItem.PathFile, fileItem.FileName);
 		this.hideFileItems.remove(fileItem);
 		this.saveHiddenFileItems();
+		this.restoreFile(fileItem.PathFile, fileItem.FileName);
+		
 	}
 
 	private void restoreFile(String inputPath, String inputFile) {

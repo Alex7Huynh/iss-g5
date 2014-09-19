@@ -1,6 +1,7 @@
 package com.example.demomobilesecurity;
 
 import java.io.File;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import com.example.demomobilesecurity.utility.FileUtils;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -52,7 +55,7 @@ public class BrowseFileActivity extends BaseActivity {
 
 		fileItems = FileUtils.getFileUtils(getApplication()).getListFileItems(
 				pathFile);
-		listView.setAdapter(new ListFileAdpater(this, fileItems));
+		listView.setAdapter(new ListFileAdpater(this, fileItems, isRestoreFile));
 		listView.setOnItemClickListener(this);
 
 	}
@@ -92,11 +95,26 @@ public class BrowseFileActivity extends BaseActivity {
 	public void selectFile() {
 
 		if (isRestoreFile) {
-			fileUtils.currentFileItem.PathFile = fileUtils.currentPathFile
-					+ "/" + fileUtils.currentFileItem.FileName;
-			fileUtils
-					.restoreFileItem(fileUtils.currentFileItem, currentPostion);
-			Intent intent = new Intent(this, ListFilesAcitivity.class);
+
+			for (FileItem fi : fileUtils.currentFileItems) {
+				fi.PathFile = fileUtils.currentPathFile + "/" + fi.FileName;
+				fileUtils.restoreFileItem(fi, currentPostion);
+				sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(fi.PathFile)));
+			}
+			
+			
+			MediaScannerConnection.scanFile(this,
+					new String[] { fileUtils.currentPathFile }, null,
+					new MediaScannerConnection.OnScanCompletedListener() {
+
+						@Override
+						public void onScanCompleted(String path, Uri uri) {
+							// TODO Auto-generated method stub
+
+						}
+					});
+			fileUtils.currentFileItems.clear();
+			Intent intent = new Intent(this, HiddenActivity.class);
 			startActivity(intent);
 		} else {
 			if (currentPostion < 0) {

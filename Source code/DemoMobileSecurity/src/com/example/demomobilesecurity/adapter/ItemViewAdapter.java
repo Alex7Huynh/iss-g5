@@ -52,9 +52,8 @@ public class ItemViewAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		ItemView tag;
-		if (convertView != null) {
-			tag = (ItemView) convertView.getTag();
-		} else {
+		
+		
 			convertView = mInflater
 					.inflate(R.layout.item_layout, parent, false);
 			tag = new ItemView(convertView);
@@ -62,7 +61,7 @@ public class ItemViewAdapter extends BaseAdapter {
 			tag.setExtra(mExtra);
 			tag.setViews();
 			convertView.setTag(tag);
-		}
+		
 		return convertView;
 	}
 

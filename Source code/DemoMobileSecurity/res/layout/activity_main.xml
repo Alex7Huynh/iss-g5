@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dip"
         android:layout_marginTop="40dip"
-        android:text="Secrect Keys"
+        android:text="Password"
         android:textSize="15dip" />
 
     <EditText
@@ -37,7 +37,7 @@
         android:layout_height="40dip"
         android:layout_gravity="center"
         android:layout_marginTop="10dip"
-        android:hint="Serect keys"
+        android:hint="Password"
         android:inputType="numberPassword"
         android:textSize="15dip" />
 

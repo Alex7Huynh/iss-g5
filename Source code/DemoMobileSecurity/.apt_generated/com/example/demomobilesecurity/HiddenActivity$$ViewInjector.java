@@ -17,13 +17,13 @@ public class HiddenActivity$$ViewInjector {
           target.browsePicture();
         }
       });
-    view = finder.findRequiredView(source, 2131230728, "method 'showHiddenFiles'");
+    view = finder.findRequiredView(source, 2131230729, "method 'showSettings'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(
           android.view.View p0
         ) {
-          target.showHiddenFiles();
+          target.showSettings();
         }
       });
     view = finder.findRequiredView(source, 2131230733, "method 'browseFile'");
@@ -35,6 +35,15 @@ public class HiddenActivity$$ViewInjector {
           target.browseFile();
         }
       });
+    view = finder.findRequiredView(source, 2131230728, "method 'showHiddenFiles'");
+    view.setOnClickListener(
+      new android.view.View.OnClickListener() {
+        @Override public void onClick(
+          android.view.View p0
+        ) {
+          target.showHiddenFiles();
+        }
+      });
     view = finder.findRequiredView(source, 2131230731, "method 'browseVideo'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
@@ -42,15 +51,6 @@ public class HiddenActivity$$ViewInjector {
           android.view.View p0
         ) {
           target.browseVideo();
-        }
-      });
-    view = finder.findRequiredView(source, 2131230729, "method 'showSettings'");
-    view.setOnClickListener(
-      new android.view.View.OnClickListener() {
-        @Override public void onClick(
-          android.view.View p0
-        ) {
-          target.showSettings();
         }
       });
     view = finder.findRequiredView(source, 2131230732, "method 'browseAudio'");

@@ -14,6 +14,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.rtp.RtpStream;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -37,7 +38,7 @@ public class ListFilesAcitivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		fileItems = fileUtils.hideFileItems;
-		listFileAdpater = new ListFileAdpater(this, fileItems);
+		listFileAdpater = new ListFileAdpater(this, fileItems, false);
 		listView.setAdapter(listFileAdpater);
 		listView.setOnItemClickListener(this);
 	}
@@ -77,7 +78,13 @@ public class ListFilesAcitivity extends BaseActivity {
 	@OnClick(R.id.restore_files) 
 	public void onRestoreFileAction(){
 		if (currentPosition >= 0) {
-			fileUtils.currentFileItem = this.fileItems.get(currentPosition);			Intent intent = new Intent(this, BrowseFileActivity.class);
+			fileUtils.currentFileItems.clear();
+			for (FileItem hiddenFile : fileUtils.hideFileItems) {
+				if (hiddenFile.IsSelected) {
+					fileUtils.currentFileItems.add(hiddenFile);
+				}
+			}
+			Intent intent = new Intent(this, BrowseFileActivity.class);
 			intent.putExtra("IS_RESTORE", true);
 			startActivity(intent);
 		}
@@ -103,6 +110,12 @@ public class ListFilesAcitivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		currentPosition = position;
 		
+	}
+	
+	public void onBackPressed(){
+	     // do something here and don't write super.onBackPressed()
+		Intent intent = new Intent(this, HiddenActivity.class);
+		this.startActivity(intent);
 	}
 	
 	

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/item_selector"
+    android:layout_height="50dip" >
+
+    <ImageView
+        android:id="@+id/file_item_avatar"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_alignParentStart="true"
+        android:layout_margin="2dip"
+        android:src="@drawable/filetype_dir" />
+
+    <TextView
+        android:id="@+id/file_item_name"
+        android:layout_width="fill_parent"
+        android:layout_height="30dip"
+        android:layout_toRightOf="@id/file_item_avatar"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dip"
+        android:text="file name"
+        android:textSize="15dip" />
+
+    <TextView
+        android:id="@+id/file_item_path"
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:layout_below="@id/file_item_name"
+        android:layout_toRightOf="@id/file_item_avatar"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dip"
+        android:text="path file"
+        android:textSize="13dip" />
+
+</RelativeLayout>

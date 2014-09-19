@@ -71,7 +71,7 @@ public final class R {
         public static final int unlock_icon=0x7f02002e;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001e;
+        public static final int action_settings=0x7f08001f;
         public static final int add_files=0x7f08000f;
         public static final int bn_Hide=0x7f080007;
         public static final int bn_confirm=0x7f080017;
@@ -82,9 +82,10 @@ public final class R {
         public static final int et_conpass=0x7f080016;
         public static final int et_newpass=0x7f080015;
         public static final int et_oldpass=0x7f080014;
-        public static final int file_item_avatar=0x7f08001b;
-        public static final int file_item_name=0x7f08001c;
-        public static final int file_item_path=0x7f08001d;
+        public static final int file_item_avatar=0x7f08001c;
+        public static final int file_item_name=0x7f08001d;
+        public static final int file_item_path=0x7f08001e;
+        public static final int file_item_select=0x7f08001b;
         public static final int in_audio=0x7f08000c;
         public static final int in_file=0x7f08000d;
         public static final int in_hiddenfile=0x7f080008;

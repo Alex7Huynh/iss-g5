@@ -7,8 +7,6 @@ import butterknife.ButterKnife.Finder;
 public class ItemView$$ViewInjector {
   public static void inject(Finder finder, final com.example.demomobilesecurity.adapter.ItemView target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131230745, "field 'iv_view'");
-    target.iv_view = (android.widget.ImageView) view;
     view = finder.findRequiredView(source, 2131230746, "field 'tv_file'");
     target.tv_file = (android.widget.TextView) view;
     view = finder.findRequiredView(source, 2131230744, "field 'cb_select' and method 'selectFile'");
@@ -21,11 +19,13 @@ public class ItemView$$ViewInjector {
           target.selectFile();
         }
       });
+    view = finder.findRequiredView(source, 2131230745, "field 'iv_view'");
+    target.iv_view = (android.widget.ImageView) view;
   }
 
   public static void reset(com.example.demomobilesecurity.adapter.ItemView target) {
-    target.iv_view = null;
     target.tv_file = null;
     target.cb_select = null;
+    target.iv_view = null;
   }
 }
