@@ -33,8 +33,8 @@ public class ItemView {
 		cb_select.setChecked(false);
 		switch (mExtra) {
 		case ConstantValues.PICTURE:
-			tv_file.setText(mRefFile.PathFile);
-			tv_file.setVisibility(View.GONE);
+			tv_file.setText(mRefFile.FileName);
+			//tv_file.setVisibility(View.GONE);
 			iv_view.setImageBitmap(BitmapFactory.decodeFile(mRefFile.PathFile));
 			return;
 		case ConstantValues.AUDIO:

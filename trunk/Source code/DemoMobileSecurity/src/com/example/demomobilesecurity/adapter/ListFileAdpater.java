@@ -17,15 +17,17 @@ public class ListFileAdpater extends BaseAdapter {
 	public Activity mParentActivity;
 	public List<FileItem> mDataList;
 	private LayoutInflater inflater;
+	private boolean isRestoreMode;
 
 	public ListFileAdpater() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ListFileAdpater(Activity parentActivity, List<FileItem> dataList) {
+	public ListFileAdpater(Activity parentActivity, List<FileItem> dataList, boolean isRestore) {
 		mParentActivity = parentActivity;
 		mDataList = dataList;
 		inflater = mParentActivity.getLayoutInflater();
+		isRestoreMode = isRestore;
 	}
 
 	@Override
@@ -52,7 +54,7 @@ public class ListFileAdpater extends BaseAdapter {
 		FileItemView holder;
 
 		convertView = inflater.inflate(R.layout.list_file_item, parent, false);
-		holder = new FileItemView(convertView, mDataList.get(position));
+		holder = new FileItemView(convertView, mDataList.get(position), isRestoreMode);
 		convertView.setTag(holder);
 
 		return convertView;
