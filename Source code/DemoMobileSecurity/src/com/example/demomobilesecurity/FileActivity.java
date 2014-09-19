@@ -1,8 +1,10 @@
 package com.example.demomobilesecurity;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import android.database.Cursor;
+import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -69,19 +71,23 @@ public class FileActivity extends BaseActivity {
 			String selection = MediaStore.Files.FileColumns.MEDIA_TYPE + "="
 			        + MediaStore.Files.FileColumns.MEDIA_TYPE_NONE;
 			String[] selectionArgs = null;
-			
 			cursor = getContentResolver().query(
 					MediaStore.Files.getContentUri("external"), projections,
 					selection, selectionArgs, MediaStore.Files.FileColumns.DATE_ADDED);
 		}
-
+	    
 		while (cursor.moveToNext()) {
+			
 			FileItem item = new FileItem();
+		
 			item.PathFile = cursor.getString(0);
 			item.FileName = cursor.getString(1);
 			item.FileType = MimeTypeMap.getFileExtensionFromUrl(item.FileName);
-			item.IsFolder = item.FileType == null || item.FileType.isEmpty(); 
-			arrfiles.add(item);
+			item.IsFolder = item.FileType == null || item.FileType.isEmpty();
+			File f = new File(item.PathFile);
+			if (f.exists() && !item.FileName.isEmpty()) {
+				arrfiles.add(item);
+			}
 
 			fileadapter = new ItemViewAdapter(arrfiles, this, extra);
 			lv_files.setAdapter(fileadapter);
