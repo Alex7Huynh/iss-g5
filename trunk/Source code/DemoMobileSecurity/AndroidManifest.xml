@@ -36,6 +36,19 @@
             android:name=".ChangePasswordActivity"
             android:label="@string/title_activity_change_password" >
         </activity>
+         <activity
+            android:name=".HiddenActivity"
+            android:label="@string/title_hidden_activity" >
+        </activity>
+         <activity
+            android:name=".FileActivity"
+            android:label="Add More Files" >
+        </activity>
+         <activity
+            android:name=".SettingsActivity"
+            android:label="Setting Activity" >
+        </activity>
     </application>
+    
 
 </manifest>
