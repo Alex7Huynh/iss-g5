@@ -6,9 +6,9 @@ http://securelist.com/analysis/kaspersky-security-bulletin/58265/kaspersky-secur
 http://m.ictnews.vn/kinh-doanh/doanh-nghiep/ba-van-de-bao-mat-can-luu-y-danh-cho-doanh-nghiep-di-dong-118616.ict
 
 *Demo (Android)
-https://www.dropbox.com/sh/uj2dwd4vcm8ejdv/AAATsACRtMu5OUND-02gQjl1a
+https://www.dropbox.com/sh/2jdaszls5cy4zbb/AACt5cHMvq_lWE7uxOXGcO1ta
 - Ẩn dữ liệu, chống ăn cắp thông tin
-- Bảo vệ hệ thống khỏi malware, spyware, adware (bổ sung sau)
+- Quản lý tin nhắn SMS, ngăn chặn ứng dụng gửi tin nhắn trái phép
 
 ---Phan cong cong viec.
 Tuan 1 - 03/09 - 07/09
