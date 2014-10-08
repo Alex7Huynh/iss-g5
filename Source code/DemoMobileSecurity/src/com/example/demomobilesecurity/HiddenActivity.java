@@ -1,10 +1,17 @@
 package com.example.demomobilesecurity;
 
+import java.util.List;
+
 import com.example.demomobilesecurity.utility.ConstantValues;
+
 import butterknife.InjectView;
 import butterknife.OnClick;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -48,21 +55,27 @@ public class HiddenActivity extends BaseActivity {
 		intent.putExtra(ConstantValues.EXTRA, ConstantValues.AUDIO);
 		startActivity(intent);
 	}
-	
+
 	@OnClick(R.id.in_video)
 	public void browseVideo() {
 		Intent intent = new Intent(getApplicationContext(), FileActivity.class);
 		intent.putExtra(ConstantValues.EXTRA, ConstantValues.VIDEO);
 		startActivity(intent);
 	}
-	
+
 	@OnClick(R.id.in_file)
 	public void browseFile() {
 		Intent intent = new Intent(getApplicationContext(), FileActivity.class);
 		intent.putExtra(ConstantValues.EXTRA, ConstantValues.FILE);
 		startActivity(intent);
 	}
-	
+
+	@OnClick(R.id.in_sms)
+	public void viewSMSApps() {
+		Intent intent = new Intent(getApplicationContext(), DetectPermissionAppActivity.class);
+		startActivity(intent);
+	}
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub

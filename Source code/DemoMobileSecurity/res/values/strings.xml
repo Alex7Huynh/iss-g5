@@ -9,5 +9,6 @@
     <string name="title_hidden_activity">Hide Your Files</string>
     <string name="title_activity_change_password">ChangePasswordActivity</string>
     <string name="title_setting_activity">Settings</string>
+    <string name="title_activity_detect_permission_app">DetectPermissionAppActivity</string>
 
 </resources>

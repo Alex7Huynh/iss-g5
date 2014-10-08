@@ -22,7 +22,8 @@ public class ItemViewAdapter extends BaseAdapter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemViewAdapter(ArrayList<FileItem> mItemList, Activity mActivity, int extra) {
+	public ItemViewAdapter(ArrayList<FileItem> mItemList, Activity mActivity,
+			int extra) {
 		super();
 		this.mItemList = mItemList;
 		this.mActivity = mActivity;
@@ -52,16 +53,14 @@ public class ItemViewAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		ItemView tag;
-		
-		
-			convertView = mInflater
-					.inflate(R.layout.item_layout, parent, false);
-			tag = new ItemView(convertView);
-			tag.mRefFile = mItemList.get(position);
-			tag.setExtra(mExtra);
-			tag.setViews();
-			convertView.setTag(tag);
-		
+
+		convertView = mInflater.inflate(R.layout.item_layout, parent, false);
+		tag = new ItemView(convertView);
+		tag.mRefFile = mItemList.get(position);
+		tag.setExtra(mExtra);
+		tag.setViews();
+		convertView.setTag(tag);
+
 		return convertView;
 	}
 

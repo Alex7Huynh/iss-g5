@@ -55,6 +55,10 @@
             android:label="Setting Activity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".DetectPermissionAppActivity"
+            android:label="@string/title_activity_detect_permission_app" >
+        </activity>
     </application>
 
 </manifest>

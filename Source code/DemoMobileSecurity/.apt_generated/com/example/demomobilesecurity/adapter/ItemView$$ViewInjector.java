@@ -7,9 +7,9 @@ import butterknife.ButterKnife.Finder;
 public class ItemView$$ViewInjector {
   public static void inject(Finder finder, final com.example.demomobilesecurity.adapter.ItemView target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131230746, "field 'tv_file'");
-    target.tv_file = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131230744, "field 'cb_select' and method 'selectFile'");
+    view = finder.findRequiredView(source, 2131230748, "field 'iv_view'");
+    target.iv_view = (android.widget.ImageView) view;
+    view = finder.findRequiredView(source, 2131230747, "field 'cb_select' and method 'selectFile'");
     target.cb_select = (android.widget.CheckBox) view;
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
@@ -19,13 +19,13 @@ public class ItemView$$ViewInjector {
           target.selectFile();
         }
       });
-    view = finder.findRequiredView(source, 2131230745, "field 'iv_view'");
-    target.iv_view = (android.widget.ImageView) view;
+    view = finder.findRequiredView(source, 2131230749, "field 'tv_file'");
+    target.tv_file = (android.widget.TextView) view;
   }
 
   public static void reset(com.example.demomobilesecurity.adapter.ItemView target) {
-    target.tv_file = null;
-    target.cb_select = null;
     target.iv_view = null;
+    target.cb_select = null;
+    target.tv_file = null;
   }
 }
