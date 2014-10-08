@@ -7,19 +7,7 @@ import butterknife.ButterKnife.Finder;
 public class ListFilesAcitivity$$ViewInjector {
   public static void inject(Finder finder, final com.example.demomobilesecurity.ListFilesAcitivity target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131230734, "field 'listView'");
-    target.listView = (android.widget.ListView) view;
-    view = finder.findRequiredView(source, 2131230736, "field 'restoreFile' and method 'onRestoreFileAction'");
-    target.restoreFile = (android.widget.Button) view;
-    view.setOnClickListener(
-      new android.view.View.OnClickListener() {
-        @Override public void onClick(
-          android.view.View p0
-        ) {
-          target.onRestoreFileAction();
-        }
-      });
-    view = finder.findRequiredView(source, 2131230735, "field 'addFile' and method 'addFiles'");
+    view = finder.findRequiredView(source, 2131230737, "field 'addFile' and method 'addFiles'");
     target.addFile = (android.widget.Button) view;
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
@@ -29,11 +17,23 @@ public class ListFilesAcitivity$$ViewInjector {
           target.addFiles();
         }
       });
+    view = finder.findRequiredView(source, 2131230736, "field 'listView'");
+    target.listView = (android.widget.ListView) view;
+    view = finder.findRequiredView(source, 2131230738, "field 'restoreFile' and method 'onRestoreFileAction'");
+    target.restoreFile = (android.widget.Button) view;
+    view.setOnClickListener(
+      new android.view.View.OnClickListener() {
+        @Override public void onClick(
+          android.view.View p0
+        ) {
+          target.onRestoreFileAction();
+        }
+      });
   }
 
   public static void reset(com.example.demomobilesecurity.ListFilesAcitivity target) {
+    target.addFile = null;
     target.listView = null;
     target.restoreFile = null;
-    target.addFile = null;
   }
 }

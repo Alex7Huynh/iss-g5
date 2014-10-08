@@ -7,11 +7,11 @@ import butterknife.ButterKnife.Finder;
 public class FileItemView$$ViewInjector {
   public static void inject(Finder finder, final com.example.demomobilesecurity.adapter.FileItemView target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131230748, "field 'fileAvatar'");
+    view = finder.findRequiredView(source, 2131230751, "field 'fileAvatar'");
     target.fileAvatar = (android.widget.ImageView) view;
-    view = finder.findRequiredView(source, 2131230750, "field 'filePath'");
+    view = finder.findRequiredView(source, 2131230753, "field 'filePath'");
     target.filePath = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131230747, "field 'fileItemSelect' and method 'onCheck'");
+    view = finder.findRequiredView(source, 2131230750, "field 'fileItemSelect' and method 'onCheck'");
     target.fileItemSelect = (android.widget.CheckBox) view;
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
@@ -21,7 +21,7 @@ public class FileItemView$$ViewInjector {
           target.onCheck();
         }
       });
-    view = finder.findRequiredView(source, 2131230749, "field 'fileName'");
+    view = finder.findRequiredView(source, 2131230752, "field 'fileName'");
     target.fileName = (android.widget.TextView) view;
   }
 

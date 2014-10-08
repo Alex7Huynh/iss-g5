@@ -23,27 +23,55 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dip"
             android:gravity="center_horizontal"
             android:orientation="horizontal" >
 
-            <ImageButton
-                android:id="@+id/in_hiddenfile"
+            <LinearLayout
                 android:layout_width="0dip"
-                android:layout_height="100dip"
-                android:layout_gravity="center_horizontal"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/filetype_sys_dir" />
+                android:orientation="vertical" >
 
-            <ImageButton
-                android:id="@+id/in_settings"
+                <ImageButton
+                    android:id="@+id/in_hiddenfile"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dip"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/filetype_sys_dir" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="View Hidden Files" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="0dip"
-                android:layout_height="100dip"
-                android:layout_gravity="center_horizontal"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/filetype_apk" />
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/in_settings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dip"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/filetype_apk" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Change Password" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -69,21 +97,49 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal" >
 
-            <ImageButton
-                android:id="@+id/in_picture"
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="100dip"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/filetype_image" />
+                android:orientation="vertical" >
 
-            <ImageButton
-                android:id="@+id/in_video"
+                <ImageButton
+                    android:id="@+id/in_picture"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/filetype_image" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Image" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="100dip"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/filetype_video" />
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/in_video"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/filetype_video" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Video" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -92,21 +148,86 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal" >
 
-            <ImageButton
-                android:id="@+id/in_audio"
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="100dip"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/filetype_music" />
+                android:orientation="vertical" >
 
-            <ImageButton
-                android:id="@+id/in_file"
+                <ImageButton
+                    android:id="@+id/in_audio"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/filetype_music" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Audio" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="100dip"
                 android:layout_weight="1"
-                android:scaleType="centerInside"
-                android:src="@drawable/filetype_sys_file" />
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/in_file"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/filetype_sys_file" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Others" />
+            </LinearLayout>
+        </LinearLayout>
+         <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="100dip"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/in_sms"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_security" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="View App Send-Read SMS" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="100dip"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+               
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
