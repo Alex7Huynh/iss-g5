@@ -1,7 +1,9 @@
 package com.example.demomobilesecurity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import butterknife.InjectView;
 
@@ -18,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class DetectPermissionAppActivity extends BaseActivity {
 
@@ -53,15 +56,28 @@ public class DetectPermissionAppActivity extends BaseActivity {
 			String[] requestedPermissions = packageInfo.requestedPermissions;
 			if (requestedPermissions != null) {
 				for (String string : requestedPermissions) {
-					if (string.contains("SMS")) {
+					if (string.contains("SMS")
+							&& !apps.contains(packageInfo.packageName)) {
 						apps.add(packageInfo.packageName);
 					}
 				}
 			}
-			
+
 		}
+		// List<String> appNames = new ArrayList<String>();
+		// for (String string : apps) {
+		// ArrayList<String> arrays = (ArrayList<String>)
+		// Arrays.asList(string.split(Pattern.quote(".")));
+		//
+		// String name = arrays.get(arrays.size() -1);
+		// appNames.add(name);
+		// }
 		permissionAdapter = new AppPermissionAdapter(this, apps);
 		listAppsView.setAdapter(permissionAdapter);
+		Toast.makeText(
+				this,
+				"These apps are reading and sending SMS permission. Please review these apps",
+				Toast.LENGTH_LONG).show();
 	}
 
 	@Override

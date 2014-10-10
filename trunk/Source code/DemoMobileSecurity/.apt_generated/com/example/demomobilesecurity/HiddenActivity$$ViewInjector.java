@@ -26,15 +26,6 @@ public class HiddenActivity$$ViewInjector {
           target.viewSMSApps();
         }
       });
-    view = finder.findRequiredView(source, 2131230732, "method 'browseVideo'");
-    view.setOnClickListener(
-      new android.view.View.OnClickListener() {
-        @Override public void onClick(
-          android.view.View p0
-        ) {
-          target.browseVideo();
-        }
-      });
     view = finder.findRequiredView(source, 2131230730, "method 'showSettings'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
@@ -42,15 +33,6 @@ public class HiddenActivity$$ViewInjector {
           android.view.View p0
         ) {
           target.showSettings();
-        }
-      });
-    view = finder.findRequiredView(source, 2131230734, "method 'browseFile'");
-    view.setOnClickListener(
-      new android.view.View.OnClickListener() {
-        @Override public void onClick(
-          android.view.View p0
-        ) {
-          target.browseFile();
         }
       });
     view = finder.findRequiredView(source, 2131230729, "method 'showHiddenFiles'");
@@ -69,6 +51,24 @@ public class HiddenActivity$$ViewInjector {
           android.view.View p0
         ) {
           target.browseAudio();
+        }
+      });
+    view = finder.findRequiredView(source, 2131230734, "method 'browseFile'");
+    view.setOnClickListener(
+      new android.view.View.OnClickListener() {
+        @Override public void onClick(
+          android.view.View p0
+        ) {
+          target.browseFile();
+        }
+      });
+    view = finder.findRequiredView(source, 2131230732, "method 'browseVideo'");
+    view.setOnClickListener(
+      new android.view.View.OnClickListener() {
+        @Override public void onClick(
+          android.view.View p0
+        ) {
+          target.browseVideo();
         }
       });
   }
